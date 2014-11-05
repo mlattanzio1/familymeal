@@ -1,0 +1,541 @@
+<style>
+	
+	article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */
+	input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+	
+	.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	
+	* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+	html {
+		width: 100%;
+		background: url(images/pw_maze_white.png);
+	}
+
+	body {
+		width: 100%;
+	}
+
+	div.color-bar {
+		background-image: url(images/color-bar.png);
+		background-repeat: repeat;
+		margin-top: -30px;
+		height: 10px;
+		width: 100%;
+	}
+
+	.logo {
+		width: 200px;
+		display: block;
+		margin: 20px auto;
+	}
+
+	.content {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	header {
+		width: 100%;
+		background-image: url(images/chili.jpg);
+		background-size: cover;
+		height: 600px;
+		padding-top: 30px;
+		text-align: center;
+	}
+
+	h1 { 	
+		font-family: Montserrat;
+		font-weight: 700;
+		font-size: 70px;
+		width: 100%;
+		color: white;
+		letter-spacing: -5px;
+		line-height: 90px;
+		display: inline;
+		text-align: center;
+		padding-top:10px;
+	}
+
+	h1:after{
+   		content: "";
+   		display: inline-block;
+  		width: 100%;
+	}
+
+	h2 {
+		position: absolute;
+		top: 50px;
+		color: white;
+		font-family: Montserrat;
+		font-size: 48px;
+		width: 100%;
+		text-align: center;
+		letter-spacing: -1px;
+	}
+
+	h3 {
+		font-family: Montserrat;
+		font-size: 48px;
+		color: white;
+		text-align: center;
+		width: 100%;
+		background: tomato;
+		padding: 15px;
+	}
+
+	h4 {
+		font-family: Montserrat;
+		font-size: 48px;
+		color: white;
+		text-align: center;
+		width: 100%;
+		background: #33C28B;
+		padding: 15px;
+	}
+
+	div.story p {
+		padding: 0px 25% 10px 25%;
+		border-top: none;
+		margin-top: -10px;
+		font-family: Droid Serif;
+		font-size: 16px;
+		color: #666;
+		text-align: left;
+	}
+
+	div.story img {
+		padding: 0px 25% 0px 25%;
+	}
+
+	footer {
+		width: 100%;
+		background: white;
+		margin: 0;
+		padding: 15px;
+		font-family: Droid Serif;
+		font-size: 16px;
+		color: #666;
+		text-align: left;
+	}
+
+	ul.nav {
+		text-align: center;
+		width: 100%;
+	}
+
+	ul.nav li {
+		list-style: none;
+		display: inline;
+		padding: 40px;
+		line-height: 60px
+	}
+
+	ul li a {
+		font-family: Montserrat;
+		font-weight: 700;
+		font-size: 24px;
+		color: white;
+		text-decoration: none;
+		border-top: 8px solid white;
+	}
+
+	ul li a:hover {
+		border-top: none;
+		border-bottom: 8px solid white;
+	}
+
+	.container {
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	.story {
+		width: 80%;
+		background: white;
+		margin: 0 auto;
+		border-bottom: 10px solid tomato;
+	}
+
+	.contact {
+		width: 100%;
+	}
+
+	.form {
+		padding: 0px 25% 0px 25%;
+	}
+
+	input {
+		display: block;
+		margin: 50px;
+		text-align: center;
+	}
+
+	textarea {
+		display: block;
+		margin: 50px;
+	}
+
+
+	input.myInput {
+
+	}
+
+	/* Master Recipe Style */
+
+	.recipe div.button {
+		padding: 10px;
+		border: 5px solid tomato;
+	}
+
+	div.recipe {
+		width: 100%;
+		height: 400px;
+		position: relative;
+		margin: 0 1%;
+		float: left;
+	}
+
+	div.recipe img.recipe-image {
+		width: 100%;
+	}
+
+	div.recipe p {
+		padding: 15px;
+		border-top: none;
+		margin-top: -10px;
+		font-family: Droid Serif;
+		font-size: 16px;
+		color: #666;
+		text-align: center;
+		background-color: white;
+	}
+
+	div.recipe p a {
+		padding: 15px;
+		margin: 15px auto 0px auto;
+		display: block;
+		font-family: Montserrat;
+		font-size: 16px;
+		text-decoration: none;
+		width: 80%;
+	}
+
+	/* End of Master Recipe Style */
+
+	/* Recipe 1 Style */
+
+	div.recipe-1 img.recipe-image {
+		border-top: 15px solid tomato;
+	}
+
+	div.recipe-1 p {
+		border-right: 10px solid tomato;
+		border-left: 10px solid tomato;
+		border-bottom: 10px solid tomato;
+	}
+
+	div.recipe-1 a {
+		border: 5px solid tomato;
+		color: tomato;
+	}
+
+	div.recipe-1 a:hover {
+		background: tomato;
+		color: white;
+	}
+
+	.front.front-1 {
+		border-top: 15px solid tomato;
+		border-bottom: 15px solid tomato;
+		background: url(images/beans.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 1 Style */
+
+	/* Recipe 2 Style */
+
+	div.recipe-2 img.recipe-image {
+		border-top: 15px solid #33C28B;
+	}
+
+	div.recipe-2 p {
+		border-right: 10px solid #33C28B;
+		border-left: 10px solid #33C28B;
+		border-bottom: 10px solid #33C28B;
+	}
+
+	div.recipe-2 a {
+		border: 5px solid #33C28B;
+		color: #33C28B;
+	}
+
+	div.recipe-2 a:hover {
+		background: #33C28B;
+		color: white;
+	}
+
+	.front.front-2 {
+		border-top: 15px solid #33C28B;
+		border-bottom: 15px solid #33C28B;
+		background: url(images/grilled-cheese.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 2 Style */
+
+	/* Recipe 3 Style */
+
+	div.recipe-3 img.recipe-image {
+		border-top: 15px solid #FFCF15;
+	}
+
+	div.recipe-3 p {
+		border-right: 10px solid #FFCF15;
+		border-left: 10px solid #FFCF15;
+		border-bottom: 10px solid #FFCF15;
+	}
+
+	div.recipe-3 a {
+		border: 5px solid #FFCF15;
+		color: #FFCF15;
+	}
+
+	div.recipe-3 a:hover {
+		background: #FFCF15;
+		color: white;
+	}
+
+	.front.front-3 {
+		border-top: 15px solid #FFCF15;
+		border-bottom: 15px solid #FFCF15;
+		background: url(images/crostata.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 3 Style */
+
+	/* Recipe 3 Style */
+
+	div.recipe-4 img.recipe-image {
+		border-top: 15px solid tomato;
+	}
+
+	div.recipe-4 p {
+		border-right: 10px solid tomato;
+		border-left: 10px solid tomato;
+		border-bottom: 10px solid tomato;
+	}
+
+	div.recipe-4 a {
+		border: 5px solid tomato;
+		color: tomato;
+	}
+
+	div.recipe-4 a:hover {
+		background: tomato;
+		color: white;
+	}
+
+	.front.front-4 {
+		border-top: 15px solid tomato;
+		border-bottom: 15px solid tomato;
+		background: url(images/pizza.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 4 Style */
+
+	/* Recipe 5 Style */
+
+	div.recipe-5 img.recipe-image {
+		border-top: 15px solid #33C28B;
+	}
+
+	div.recipe-5 p {
+		border-right: 10px solid #33C28B;
+		border-left: 10px solid #33C28B;
+		border-bottom: 10px solid #33C28B;
+	}
+
+	div.recipe-5 a {
+		border: 5px solid #33C28B;
+		color: #33C28B;
+	}
+
+	div.recipe-5 a:hover {
+		background: #33C28B;
+		color: white;
+	}
+
+	.front.front-5 {
+		border-top: 15px solid #33C28B;
+		border-bottom: 15px solid #33C28B;
+		background: url(images/veal.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 5 Style */
+
+	/* Recipe 6 Style */
+
+	div.recipe-6 img.recipe-image {
+		border-top: 15px solid #FFCF15;
+	}
+
+	div.recipe-6 p {
+		border-right: 10px solid #FFCF15;
+		border-left: 10px solid #FFCF15;
+		border-bottom: 10px solid #FFCF15;
+	}
+
+	div.recipe-6 a {
+		border: 5px solid #FFCF15;
+		color: #FFCF15;
+	}
+
+	div.recipe-6 a:hover {
+		background: #FFCF15;
+		color: white;
+	}
+
+	.front.front-6 {
+		border-top: 15px solid #FFCF15;
+		border-bottom: 15px solid #FFCF15;
+		background: url(images/ravioli.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 6 Style */
+
+	/* Recipe 7 Style */
+
+	div.recipe-7 img.recipe-image {
+		border-top: 15px solid tomato;
+	}
+
+	div.recipe-7 p {
+		border-right: 10px solid tomato;
+		border-left: 10px solid tomato;
+		border-bottom: 10px solid tomato;
+	}
+
+	div.recipe-7 a {
+		border: 5px solid tomato;
+		color: tomato;
+	}
+
+	div.recipe-7 a:hover {
+		background: tomato;
+		color: white;
+	}
+
+	.front.front-7 {
+		border-top: 15px solid tomato;
+		border-bottom: 15px solid tomato;
+		background: url(images/bowtie.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 7 Style */
+
+	/* Recipe 8 Style */
+
+	div.recipe-8 img.recipe-image {
+		border-top: 15px solid #33C28B;
+	}
+
+	div.recipe-8 p {
+		border-right: 10px solid #33C28B;
+		border-left: 10px solid #33C28B;
+		border-bottom: 10px solid #33C28B;
+	}
+
+	div.recipe-8 a {
+		border: 5px solid #33C28B;
+		color: #33C28B;
+	}
+
+	div.recipe-8 a:hover {
+		background: #33C28B;
+		color: white;
+	}
+
+	.front.front-8 {
+		border-top: 15px solid #33C28B;
+		border-bottom: 15px solid #33C28B;
+		background: url(images/beans.jpg);
+		background-size: 800px;
+		background-position: center;
+	}
+
+	/* End of Recipe 8 Style */
+
+	/* START OF ANIMATION */
+
+	/* front pane, placed above back */
+
+	.front {
+		z-index: 2;
+		/* for firefox 31 */
+		transform: rotateY(0deg);
+		width: 100%;
+		height: 400px;
+		position: absolute;
+		margin: 0 1%;
+		float: left;
+	}
+
+	/* entire container, keeps perspective */
+	.flip-container {
+		perspective: 1000;
+		float: left;
+		width: 23%;
+		height: 500px;
+		margin: 0 1%;
+	}
+
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+	.flip-container {
+		width: 23%;
+	}
+
+	.front, .recipe-1 {
+		width: 100%;
+		height: 416px;
+		position: absolute;
+	}
+
+	/* flip speed goes here */
+	.flipper {
+		transition: 0.6s;
+		transform-style: preserve-3d;
+		position: relative;
+	}
+
+	/* hide back of pane during swap */
+	.front, .recipe {
+		backface-visibility: hidden;
+		position: absolute;
+	}
+
+	/* back, initially hidden pane */
+		.recipe {
+			transform: rotateY(180deg);
+	}
+
+	/* END OF ANIMATION */
+
+</style>
